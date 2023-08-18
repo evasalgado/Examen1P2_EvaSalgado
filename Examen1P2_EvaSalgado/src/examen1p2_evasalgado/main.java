@@ -7,6 +7,7 @@ package examen1p2_evasalgado;
 import java.awt.Color;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +25,10 @@ public class main extends javax.swing.JFrame {
         equipos.setVisible(false);
         estadios.setVisible(false);
         jugadores.setVisible(false);
-
+        pie =  (DefaultComboBoxModel) pieh.getModel();
+        pie.removeAllElements();
+        pie.addElement("Izquierda");
+        pie.addElement("Derecha");
     }
 
     /**
@@ -55,6 +59,10 @@ public class main extends javax.swing.JFrame {
         addestadio = new javax.swing.JButton();
         fondo = new javax.swing.JPanel();
         jugadores = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        pieh = new javax.swing.JComboBox<>();
         menulistar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
@@ -225,15 +233,55 @@ public class main extends javax.swing.JFrame {
 
         menuañadir.add(estadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
+        jTextField1.setText("Añadir Nombre de Jugador");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setText("Ingrese edad");
+
+        jTextField3.setText("Nacionalidad");
+
+        pieh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pieh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                piehMouseClicked(evt);
+            }
+        });
+        pieh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                piehActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jugadoresLayout = new javax.swing.GroupLayout(jugadores);
         jugadores.setLayout(jugadoresLayout);
         jugadoresLayout.setHorizontalGroup(
             jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jugadoresLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pieh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField3)
+                        .addComponent(jTextField2)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
+                .addContainerGap(486, Short.MAX_VALUE))
         );
         jugadoresLayout.setVerticalGroup(
             jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGroup(jugadoresLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pieh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         menuañadir.add(jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
@@ -281,6 +329,7 @@ public class main extends javax.swing.JFrame {
         añadirequipo.setVisible(false);
         añadirestadio.setVisible(false);
         añadirjugador.setVisible(false);
+        
     }//GEN-LAST:event_añadirjugadorActionPerformed
 
     private void añadirequipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirequipoActionPerformed
@@ -408,6 +457,19 @@ public class main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_CapacidadMouseClicked
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void piehActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_piehActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_piehActionPerformed
+
+    private void piehMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_piehMouseClicked
+        
+    }//GEN-LAST:event_piehMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -442,6 +504,8 @@ public class main extends javax.swing.JFrame {
             }
         });
     }
+    ArrayList todos = new ArrayList();
+    DefaultComboBoxModel pie = new DefaultComboBoxModel();
     equipo Equipo = new equipo();
     ArrayList<equipo> E = new ArrayList<>();
     ArrayList<estadio> Estadios = new ArrayList();
@@ -460,6 +524,9 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel estadios;
     private javax.swing.JPanel fondo;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JPanel jugadores;
     private javax.swing.JTabbedPane menu;
@@ -467,6 +534,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel menulistar;
     private javax.swing.JTextField nameequipo;
     private javax.swing.JTextField nameestadio;
+    private javax.swing.JComboBox<String> pieh;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

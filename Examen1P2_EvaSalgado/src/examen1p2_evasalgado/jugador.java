@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author evaja
  */
-public class jugador {
+public abstract class jugador {
 
     private String nombre;
     private int edad;
