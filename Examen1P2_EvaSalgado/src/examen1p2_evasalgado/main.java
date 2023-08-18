@@ -52,8 +52,6 @@ public class main extends javax.swing.JFrame {
         Ciudad = new javax.swing.JTextField();
         Capacidad = new javax.swing.JTextField();
         addestadio = new javax.swing.JButton();
-        nameteam = new javax.swing.JTextField();
-        listaequipos = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jugadores = new javax.swing.JPanel();
         menulistar = new javax.swing.JPanel();
@@ -149,27 +147,36 @@ public class main extends javax.swing.JFrame {
         estadios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nameestadio.setText("Ingrese nombre de estadio");
+        nameestadio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nameestadioMouseClicked(evt);
+            }
+        });
         estadios.add(nameestadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 200, 70));
 
         Ciudad.setText("ingrese nombre de ciudad");
+        Ciudad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CiudadMouseClicked(evt);
+            }
+        });
         estadios.add(Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 200, 70));
 
         Capacidad.setText("capacidad: ");
+        Capacidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CapacidadMouseClicked(evt);
+            }
+        });
         estadios.add(Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, 70));
 
         addestadio.setText("Añadir");
-        estadios.add(addestadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 130, 60));
-
-        nameteam.setText("Ingrese el nombre del equipo de la lista");
-        nameteam.addActionListener(new java.awt.event.ActionListener() {
+        addestadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameteamActionPerformed(evt);
+                addestadioActionPerformed(evt);
             }
         });
-        estadios.add(nameteam, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 230, 50));
-
-        listaequipos.setBackground(new java.awt.Color(255, 204, 153));
-        estadios.add(listaequipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 320, 380));
+        estadios.add(addestadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 130, 60));
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
 
@@ -177,14 +184,14 @@ public class main extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGap(0, 380, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        estadios.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 360, 500));
+        estadios.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 380, 500));
 
         menuañadir.add(estadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
@@ -257,6 +264,7 @@ public class main extends javax.swing.JFrame {
 
     private void añadirestadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirestadioActionPerformed
         // TODO add your handling code here:
+
         estadios.setVisible(true);
         añadirequipo.setVisible(false);
         añadirestadio.setVisible(false);
@@ -306,14 +314,69 @@ public class main extends javax.swing.JFrame {
         añadirjugador.setVisible(true);
     }//GEN-LAST:event_añadireActionPerformed
 
-    private void nameteamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameteamActionPerformed
+    private void addestadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addestadioActionPerformed
+        // TODO add your handling code here:
+        String add = JOptionPane.showInputDialog("Ingrese el nombre del equipo representante del estadio: ");
         for (int i = 0; i < E.size(); i++) {
-            if (nameteam.getText().equals(E.get(i).getNombre())) {
-               Estadios.add(new estadio(nameestadio.getText(),Ciudad.getText(),Integer.parseInt(Capacidad.getText())));
+            if (!add.equals(E.get(i).getNombre())) {
+                while (!add.equals(E.get(i).getNombre())) {
+                    add = JOptionPane.showInputDialog("Equipo no en la lista\nIngrese el nombre del equipo representante del estadio: ");
+                }
+            } else {
+                Estadios.add(new estadio(nameestadio.getText(),Ciudad.getText(),Integer.parseInt(Capacidad.getText())));
             }
         }
-        JOptionPane.showMessageDialog(this, "Estadio añadido correctamente");
-    }//GEN-LAST:event_nameteamActionPerformed
+        JOptionPane.showMessageDialog(this, "Estadio agregado exitosamente");
+    }//GEN-LAST:event_addestadioActionPerformed
+
+    private void nameestadioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameestadioMouseClicked
+        if (nameestadio.getText().equals("Ingrese nombre de estadio")) {
+            nameestadio.setText("");
+            nameestadio.setForeground(Color.BLACK);
+        }
+        if (Ciudad.getText().isEmpty()) {
+            Ciudad.setText("ingrese nombre de ciudad");
+            Ciudad.setForeground(Color.gray);
+        }
+         if (Capacidad.getText().isEmpty()) {
+            Capacidad.setText("capacidad:");
+            Capacidad.setForeground(Color.gray);
+        }
+        
+    }//GEN-LAST:event_nameestadioMouseClicked
+
+    private void CiudadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CiudadMouseClicked
+        // TODO add your handling code here:
+       
+        if (Ciudad.getText().equals("ingrese nombre de ciudad")) {
+            Ciudad.setText("");
+            Ciudad.setForeground(Color.BLACK);
+        }
+          if (nameestadio.getText().isEmpty()) {
+            nameestadio.setText("Ingrese nombre de estadio");
+            nameestadio.setForeground(Color.gray);
+        }
+         if (Capacidad.getText().isEmpty()) {
+            Capacidad.setText("capacidad:");
+            Capacidad.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_CiudadMouseClicked
+
+    private void CapacidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CapacidadMouseClicked
+         if (Capacidad.getText().equals("capacidad:")) {
+            Capacidad.setText("");
+            Capacidad.setForeground(Color.BLACK);
+        }
+        if (Ciudad.getText().isEmpty()) {
+            Ciudad.setText("ingrese nombre de ciudad");
+            Ciudad.setForeground(Color.gray);
+        }
+          if (nameestadio.getText().isEmpty()) {
+            nameestadio.setText("Ingrese nombre de estadio");
+            nameestadio.setForeground(Color.gray);
+        }
+        
+    }//GEN-LAST:event_CapacidadMouseClicked
 
     /**
      * @param args the command line arguments
@@ -368,13 +431,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JPanel jugadores;
-    private javax.swing.JLabel listaequipos;
     private javax.swing.JTabbedPane menu;
     private javax.swing.JPanel menuañadir;
     private javax.swing.JPanel menulistar;
     private javax.swing.JTextField nameequipo;
     private javax.swing.JTextField nameestadio;
-    private javax.swing.JTextField nameteam;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
