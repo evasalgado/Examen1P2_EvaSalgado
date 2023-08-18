@@ -21,7 +21,9 @@ public class main extends javax.swing.JFrame {
         initComponents();
         setLocation(400, 200);
         equipos.setVisible(false);
-        
+        estadios.setVisible(false);
+        jugadores.setVisible(false);
+
     }
 
     /**
@@ -42,7 +44,10 @@ public class main extends javax.swing.JFrame {
         country = new javax.swing.JTextField();
         nameequipo = new javax.swing.JTextField();
         añadire = new javax.swing.JButton();
-        plantilla = new javax.swing.JSpinner();
+        title = new javax.swing.JLabel();
+        color = new javax.swing.JPanel();
+        estadios = new javax.swing.JPanel();
+        jugadores = new javax.swing.JPanel();
         menulistar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,6 +78,8 @@ public class main extends javax.swing.JFrame {
         });
         menuañadir.add(añadirjugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 193, 85));
 
+        equipos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         country.setText("Ingrese el pais de origen");
         country.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,6 +91,7 @@ public class main extends javax.swing.JFrame {
                 countryActionPerformed(evt);
             }
         });
+        equipos.add(country, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 146, 288, 42));
 
         nameequipo.setText("Ingrese el nombre del equipo");
         nameequipo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,6 +104,7 @@ public class main extends javax.swing.JFrame {
                 nameequipoActionPerformed(evt);
             }
         });
+        equipos.add(nameequipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 89, 288, 42));
 
         añadire.setText("añadir");
         añadire.addActionListener(new java.awt.event.ActionListener() {
@@ -103,48 +112,55 @@ public class main extends javax.swing.JFrame {
                 añadireActionPerformed(evt);
             }
         });
+        equipos.add(añadire, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 291, 113, 53));
 
-        plantilla.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                plantillaMouseClicked(evt);
-            }
-        });
+        title.setBackground(new java.awt.Color(153, 51, 255));
+        title.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        title.setText("AÑADIR EQUIPO");
+        equipos.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 18, 288, 58));
 
-        javax.swing.GroupLayout equiposLayout = new javax.swing.GroupLayout(equipos);
-        equipos.setLayout(equiposLayout);
-        equiposLayout.setHorizontalGroup(
-            equiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(equiposLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(equiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plantilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(añadire, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(country, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(396, Short.MAX_VALUE))
-            .addGroup(equiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(equiposLayout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(nameequipo, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(396, Short.MAX_VALUE)))
+        color.setBackground(new java.awt.Color(102, 0, 255));
+
+        javax.swing.GroupLayout colorLayout = new javax.swing.GroupLayout(color);
+        color.setLayout(colorLayout);
+        colorLayout.setHorizontalGroup(
+            colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 280, Short.MAX_VALUE)
         );
-        equiposLayout.setVerticalGroup(
-            equiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(equiposLayout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(country, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(plantilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(añadire, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
-            .addGroup(equiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(equiposLayout.createSequentialGroup()
-                    .addGap(89, 89, 89)
-                    .addComponent(nameequipo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(339, Short.MAX_VALUE)))
+        colorLayout.setVerticalGroup(
+            colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
+
+        equipos.add(color, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 280, 470));
 
         menuañadir.add(equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
+
+        javax.swing.GroupLayout estadiosLayout = new javax.swing.GroupLayout(estadios);
+        estadios.setLayout(estadiosLayout);
+        estadiosLayout.setHorizontalGroup(
+            estadiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        estadiosLayout.setVerticalGroup(
+            estadiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        menuañadir.add(estadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
+
+        javax.swing.GroupLayout jugadoresLayout = new javax.swing.GroupLayout(jugadores);
+        jugadores.setLayout(jugadoresLayout);
+        jugadoresLayout.setHorizontalGroup(
+            jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        jugadoresLayout.setVerticalGroup(
+            jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        menuañadir.add(jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
         menu.addTab("Añadir", menuañadir);
 
@@ -177,11 +193,15 @@ public class main extends javax.swing.JFrame {
 
     private void añadirjugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirjugadorActionPerformed
         // TODO add your handling code here:
+        jugadores.setVisible(true);
+        añadirequipo.setVisible(false);
+        añadirestadio.setVisible(false);
+        añadirjugador.setVisible(false);
     }//GEN-LAST:event_añadirjugadorActionPerformed
 
     private void añadirequipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirequipoActionPerformed
         // TODO add your handling code here:
-        
+
         equipos.setVisible(true);
         añadirequipo.setVisible(false);
         añadirestadio.setVisible(false);
@@ -190,22 +210,26 @@ public class main extends javax.swing.JFrame {
 
     private void añadirestadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirestadioActionPerformed
         // TODO add your handling code here:
+        estadios.setVisible(true);
+        añadirequipo.setVisible(false);
+        añadirestadio.setVisible(false);
+        añadirjugador.setVisible(false);
     }//GEN-LAST:event_añadirestadioActionPerformed
 
     private void countryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_countryActionPerformed
 
     private void nameequipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameequipoActionPerformed
         // TODO add your handling code here:                                    
-        
+
     }//GEN-LAST:event_nameequipoActionPerformed
 
     private void nameequipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameequipoMouseClicked
-      if (nameequipo.getText().equals("Ingrese el nombre del equipo")) {
-          nameequipo.setText("");
-          nameequipo.setForeground(Color.GRAY);
+        if (nameequipo.getText().equals("Ingrese el nombre del equipo")) {
+            nameequipo.setText("");
+            nameequipo.setForeground(Color.GRAY);
         }
         if (country.getText().isEmpty()) {
             country.setText("Ingrese el pais de origen");
@@ -214,7 +238,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_nameequipoMouseClicked
 
     private void countryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countryMouseClicked
-         if (country.getText().equals("Ingrese el pais de origen")) {
+        if (country.getText().equals("Ingrese el pais de origen")) {
             country.setText("");
             country.setForeground(Color.GRAY);
         }
@@ -226,21 +250,14 @@ public class main extends javax.swing.JFrame {
 
     private void añadireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadireActionPerformed
         // TODO add your handling code here:
-        
-        E.add(new equipo(nameequipo.getText(),country.getText()));
-        JOptionPane.showMessageDialog(this,"Datos ingresados correctamente");
+        Equipo = new equipo(nameequipo.getText(), country.getText());
+        E.add(Equipo);
+        JOptionPane.showMessageDialog(this, "Datos ingresados correctamente");
         equipos.setVisible(false);
         añadirequipo.setVisible(true);
         añadirestadio.setVisible(true);
         añadirjugador.setVisible(true);
     }//GEN-LAST:event_añadireActionPerformed
-
-    private void plantillaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plantillaMouseClicked
-        // TODO add your handling code here:
-        if (plantilla.size()>) {
-            
-        }
-    }//GEN-LAST:event_plantillaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -276,19 +293,22 @@ public class main extends javax.swing.JFrame {
             }
         });
     }
-    equipo Equipo
-    ArrayList<equipo> E =new ArrayList<>();
+    equipo Equipo = new equipo();
+    ArrayList<equipo> E = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton añadire;
     private javax.swing.JButton añadirequipo;
     private javax.swing.JButton añadirestadio;
     private javax.swing.JButton añadirjugador;
+    private javax.swing.JPanel color;
     private javax.swing.JTextField country;
     private javax.swing.JPanel equipos;
+    private javax.swing.JPanel estadios;
+    private javax.swing.JPanel jugadores;
     private javax.swing.JTabbedPane menu;
     private javax.swing.JPanel menuañadir;
     private javax.swing.JPanel menulistar;
     private javax.swing.JTextField nameequipo;
-    private javax.swing.JSpinner plantilla;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
