@@ -47,8 +47,15 @@ public class main extends javax.swing.JFrame {
         title = new javax.swing.JLabel();
         color = new javax.swing.JPanel();
         estadios = new javax.swing.JPanel();
+        nameestadio = new javax.swing.JTextField();
+        Ciudad = new javax.swing.JTextField();
+        Capacidad = new javax.swing.JTextField();
+        equipo = new javax.swing.JComboBox<>();
+        addestadio = new javax.swing.JButton();
         jugadores = new javax.swing.JPanel();
         menulistar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,16 +143,22 @@ public class main extends javax.swing.JFrame {
 
         menuañadir.add(equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
-        javax.swing.GroupLayout estadiosLayout = new javax.swing.GroupLayout(estadios);
-        estadios.setLayout(estadiosLayout);
-        estadiosLayout.setHorizontalGroup(
-            estadiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        estadiosLayout.setVerticalGroup(
-            estadiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
+        estadios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nameestadio.setText("Ingrese nombre de estadio");
+        estadios.add(nameestadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 200, 70));
+
+        Ciudad.setText("ingrese nombre de ciudad");
+        estadios.add(Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 200, 70));
+
+        Capacidad.setText("capacidad: ");
+        estadios.add(Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, 70));
+
+        equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        estadios.add(equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 40));
+
+        addestadio.setText("Añadir");
+        estadios.add(addestadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 130, 60));
 
         menuañadir.add(estadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
@@ -164,15 +177,23 @@ public class main extends javax.swing.JFrame {
 
         menu.addTab("Añadir", menuañadir);
 
+        jScrollPane1.setViewportView(jTextPane1);
+
         javax.swing.GroupLayout menulistarLayout = new javax.swing.GroupLayout(menulistar);
         menulistar.setLayout(menulistarLayout);
         menulistarLayout.setHorizontalGroup(
             menulistarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(menulistarLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(572, Short.MAX_VALUE))
         );
         menulistarLayout.setVerticalGroup(
             menulistarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGroup(menulistarLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(407, Short.MAX_VALUE))
         );
 
         menu.addTab("Lista", menulistar);
@@ -296,19 +317,26 @@ public class main extends javax.swing.JFrame {
     equipo Equipo = new equipo();
     ArrayList<equipo> E = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Capacidad;
+    private javax.swing.JTextField Ciudad;
+    private javax.swing.JButton addestadio;
     private javax.swing.JButton añadire;
     private javax.swing.JButton añadirequipo;
     private javax.swing.JButton añadirestadio;
     private javax.swing.JButton añadirjugador;
     private javax.swing.JPanel color;
     private javax.swing.JTextField country;
+    private javax.swing.JComboBox<String> equipo;
     private javax.swing.JPanel equipos;
     private javax.swing.JPanel estadios;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JPanel jugadores;
     private javax.swing.JTabbedPane menu;
     private javax.swing.JPanel menuañadir;
     private javax.swing.JPanel menulistar;
     private javax.swing.JTextField nameequipo;
+    private javax.swing.JTextField nameestadio;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
