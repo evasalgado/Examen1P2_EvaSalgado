@@ -41,6 +41,7 @@ public class main extends javax.swing.JFrame {
         añadirequipo = new javax.swing.JButton();
         añadirestadio = new javax.swing.JButton();
         añadirjugador = new javax.swing.JButton();
+        color1 = new javax.swing.JPanel();
         equipos = new javax.swing.JPanel();
         country = new javax.swing.JTextField();
         nameequipo = new javax.swing.JTextField();
@@ -52,16 +53,23 @@ public class main extends javax.swing.JFrame {
         Ciudad = new javax.swing.JTextField();
         Capacidad = new javax.swing.JTextField();
         addestadio = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        fondo = new javax.swing.JPanel();
         jugadores = new javax.swing.JPanel();
         menulistar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 153, 255));
 
+        menu.setForeground(new java.awt.Color(0, 153, 255));
+
+        menuañadir.setBackground(new java.awt.Color(0, 153, 255));
         menuañadir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        añadirequipo.setBackground(new java.awt.Color(255, 204, 51));
+        añadirequipo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        añadirequipo.setForeground(new java.awt.Color(255, 255, 255));
         añadirequipo.setText("Añadir Equipo");
         añadirequipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +78,9 @@ public class main extends javax.swing.JFrame {
         });
         menuañadir.add(añadirequipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 193, 85));
 
+        añadirestadio.setBackground(new java.awt.Color(255, 204, 0));
+        añadirestadio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        añadirestadio.setForeground(new java.awt.Color(255, 255, 255));
         añadirestadio.setText("Añadir Estadio");
         añadirestadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +89,9 @@ public class main extends javax.swing.JFrame {
         });
         menuañadir.add(añadirestadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 193, 85));
 
+        añadirjugador.setBackground(new java.awt.Color(255, 204, 0));
+        añadirjugador.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        añadirjugador.setForeground(new java.awt.Color(255, 255, 255));
         añadirjugador.setText("Añadir Jugador");
         añadirjugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +100,22 @@ public class main extends javax.swing.JFrame {
         });
         menuañadir.add(añadirjugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 193, 85));
 
+        color1.setBackground(new java.awt.Color(102, 0, 51));
+
+        javax.swing.GroupLayout color1Layout = new javax.swing.GroupLayout(color1);
+        color1.setLayout(color1Layout);
+        color1Layout.setHorizontalGroup(
+            color1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
+        color1Layout.setVerticalGroup(
+            color1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 510, Short.MAX_VALUE)
+        );
+
+        menuañadir.add(color1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 360, 510));
+
+        equipos.setBackground(new java.awt.Color(51, 153, 255));
         equipos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         country.setText("Ingrese el pais de origen");
@@ -127,7 +157,7 @@ public class main extends javax.swing.JFrame {
         title.setText("AÑADIR EQUIPO");
         equipos.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 18, 288, 58));
 
-        color.setBackground(new java.awt.Color(102, 0, 255));
+        color.setBackground(new java.awt.Color(102, 0, 51));
 
         javax.swing.GroupLayout colorLayout = new javax.swing.GroupLayout(color);
         color.setLayout(colorLayout);
@@ -178,20 +208,20 @@ public class main extends javax.swing.JFrame {
         });
         estadios.add(addestadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 130, 60));
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+        fondo.setBackground(new java.awt.Color(102, 0, 51));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
+        fondo.setLayout(fondoLayout);
+        fondoLayout.setHorizontalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 380, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        fondoLayout.setVerticalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        estadios.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 380, 500));
+        estadios.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 380, 500));
 
         menuañadir.add(estadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
@@ -226,7 +256,7 @@ public class main extends javax.swing.JFrame {
             .addGroup(menulistarLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addContainerGap(447, Short.MAX_VALUE))
         );
 
         menu.addTab("Lista", menulistar);
@@ -424,10 +454,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton añadirestadio;
     private javax.swing.JButton añadirjugador;
     private javax.swing.JPanel color;
+    private javax.swing.JPanel color1;
     private javax.swing.JTextField country;
     private javax.swing.JPanel equipos;
     private javax.swing.JPanel estadios;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel fondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JPanel jugadores;
