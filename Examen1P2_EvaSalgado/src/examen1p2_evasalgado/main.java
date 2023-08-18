@@ -5,6 +5,7 @@
 package examen1p2_evasalgado;
 
 import java.awt.Color;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -50,8 +51,10 @@ public class main extends javax.swing.JFrame {
         nameestadio = new javax.swing.JTextField();
         Ciudad = new javax.swing.JTextField();
         Capacidad = new javax.swing.JTextField();
-        equipo = new javax.swing.JComboBox<>();
         addestadio = new javax.swing.JButton();
+        nameteam = new javax.swing.JTextField();
+        listaequipos = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jugadores = new javax.swing.JPanel();
         menulistar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -154,11 +157,34 @@ public class main extends javax.swing.JFrame {
         Capacidad.setText("capacidad: ");
         estadios.add(Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, 70));
 
-        equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        estadios.add(equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 230, 40));
-
         addestadio.setText("Añadir");
         estadios.add(addestadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 130, 60));
+
+        nameteam.setText("Ingrese el nombre del equipo de la lista");
+        nameteam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameteamActionPerformed(evt);
+            }
+        });
+        estadios.add(nameteam, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 230, 50));
+
+        listaequipos.setBackground(new java.awt.Color(255, 204, 153));
+        estadios.add(listaequipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 320, 380));
+
+        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        estadios.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 360, 500));
 
         menuañadir.add(estadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
@@ -280,6 +306,15 @@ public class main extends javax.swing.JFrame {
         añadirjugador.setVisible(true);
     }//GEN-LAST:event_añadireActionPerformed
 
+    private void nameteamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameteamActionPerformed
+        for (int i = 0; i < E.size(); i++) {
+            if (nameteam.getText().equals(E.get(i).getNombre())) {
+               Estadios.add(new estadio(nameestadio.getText(),Ciudad.getText(),Integer.parseInt(Capacidad.getText())));
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Estadio añadido correctamente");
+    }//GEN-LAST:event_nameteamActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -316,6 +351,7 @@ public class main extends javax.swing.JFrame {
     }
     equipo Equipo = new equipo();
     ArrayList<equipo> E = new ArrayList<>();
+    ArrayList<estadio> Estadios = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Capacidad;
     private javax.swing.JTextField Ciudad;
@@ -326,17 +362,19 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton añadirjugador;
     private javax.swing.JPanel color;
     private javax.swing.JTextField country;
-    private javax.swing.JComboBox<String> equipo;
     private javax.swing.JPanel equipos;
     private javax.swing.JPanel estadios;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JPanel jugadores;
+    private javax.swing.JLabel listaequipos;
     private javax.swing.JTabbedPane menu;
     private javax.swing.JPanel menuañadir;
     private javax.swing.JPanel menulistar;
     private javax.swing.JTextField nameequipo;
     private javax.swing.JTextField nameestadio;
+    private javax.swing.JTextField nameteam;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
