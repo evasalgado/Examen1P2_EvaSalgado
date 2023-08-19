@@ -25,4 +25,12 @@ public class portero extends jugador{
         super(nombre, edad, nacionalidad, piehabil, rating, Agarre, Lanzamiento, passing, fisico, ritmo, entrada, vision, disparo, Regate);
     }
     
+    public int rating(int Agarre, int Lanzamiento, int passing){
+        Random r = new Random();
+        Agarre=r.nextInt(1,5);
+        Lanzamiento=r.nextInt(1,5);
+        passing=r.nextInt(1,5);
+        int tot=(Agarre+Lanzamiento+passing)*13;
+     return tot;   
+    }
 }

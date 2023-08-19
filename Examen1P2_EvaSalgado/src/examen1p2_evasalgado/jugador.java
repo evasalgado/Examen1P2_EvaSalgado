@@ -173,7 +173,7 @@ public abstract class jugador {
     public void setRegate(int Regate) {
         this.Regate = Regate;
     }
-
+    
     
     
 }

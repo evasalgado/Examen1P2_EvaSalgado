@@ -57,7 +57,7 @@ public class equipo {
     }
     @Override
     public String toString() {
-        return "equipo{" + "nombre=" + nombre + ", pais=" + pais + ", Rating=" + Rating + ", plantilla=" + plantilla ;
+        return nombre ;
     }
     public void setPlantilla(ArrayList<Integer> plantilla) {
         if (plantilla.size()<=4) {

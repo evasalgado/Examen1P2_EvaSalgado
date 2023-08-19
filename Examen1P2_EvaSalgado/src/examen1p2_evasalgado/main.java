@@ -26,12 +26,18 @@ public class main extends javax.swing.JFrame {
         estadios.setVisible(false);
         jugadores.setVisible(false);
         pie =  (DefaultComboBoxModel) pieh.getModel();
+        pos = (DefaultComboBoxModel) Posicion.getModel();
         teams = (DefaultComboBoxModel) equipoestadio.getModel();
+        pos.removeAllElements();
         teams.removeAllElements();
         pie.removeAllElements();
         for (int i = 0; i < E.size(); i++) {
-            teams.addElement(E.get(i).getNombre());
+            teams.addElement(E.get(i));
         }
+        pos.addElement("portero");
+        pos.addElement("Delantero");
+        pos.addElement("Mediocampista");
+        pos.addElement("Defensa");
         pie.addElement("Izquierda");
         pie.addElement("Derecha");
     }
@@ -70,6 +76,8 @@ public class main extends javax.swing.JFrame {
         nacionalidad = new javax.swing.JTextField();
         pieh = new javax.swing.JComboBox<>();
         addjugador = new javax.swing.JButton();
+        equipojuego = new javax.swing.JTextField();
+        Posicion = new javax.swing.JComboBox<>();
         menulistar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
@@ -250,6 +258,7 @@ public class main extends javax.swing.JFrame {
         menuañadir.add(estadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
         jugadores.setBackground(new java.awt.Color(0, 153, 255));
+        jugadores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         player.setBackground(new java.awt.Color(255, 204, 51));
         player.setForeground(new java.awt.Color(255, 255, 255));
@@ -259,16 +268,19 @@ public class main extends javax.swing.JFrame {
                 playerActionPerformed(evt);
             }
         });
+        jugadores.add(player, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 37, 180, 63));
 
         age.setBackground(new java.awt.Color(255, 204, 51));
         age.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         age.setForeground(new java.awt.Color(255, 255, 255));
         age.setText("Ingrese edad");
+        jugadores.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 118, 180, 57));
 
         nacionalidad.setBackground(new java.awt.Color(255, 204, 51));
         nacionalidad.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         nacionalidad.setForeground(new java.awt.Color(255, 255, 255));
         nacionalidad.setText("Nacionalidad");
+        jugadores.add(nacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 199, 180, 55));
 
         pieh.setBackground(new java.awt.Color(255, 204, 51));
         pieh.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -284,6 +296,7 @@ public class main extends javax.swing.JFrame {
                 piehActionPerformed(evt);
             }
         });
+        jugadores.add(pieh, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 272, -1, -1));
 
         addjugador.setBackground(new java.awt.Color(255, 204, 51));
         addjugador.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -294,37 +307,25 @@ public class main extends javax.swing.JFrame {
                 addjugadorMouseClicked(evt);
             }
         });
+        jugadores.add(addjugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 331, 155, 76));
 
-        javax.swing.GroupLayout jugadoresLayout = new javax.swing.GroupLayout(jugadores);
-        jugadores.setLayout(jugadoresLayout);
-        jugadoresLayout.setHorizontalGroup(
-            jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jugadoresLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addjugador, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pieh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(nacionalidad)
-                        .addComponent(age)
-                        .addComponent(player, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
-                .addContainerGap(486, Short.MAX_VALUE))
-        );
-        jugadoresLayout.setVerticalGroup(
-            jugadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jugadoresLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(player, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pieh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(addjugador, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
+        equipojuego.setBackground(new java.awt.Color(255, 204, 51));
+        equipojuego.setForeground(new java.awt.Color(255, 255, 255));
+        equipojuego.setText("Equipo en el que está: ");
+        equipojuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equipojuegoActionPerformed(evt);
+            }
+        });
+        jugadores.add(equipojuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 37, 180, 63));
+
+        Posicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Posicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PosicionActionPerformed(evt);
+            }
+        });
+        jugadores.add(Posicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 110, 50));
 
         menuañadir.add(jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 470));
 
@@ -438,7 +439,7 @@ public class main extends javax.swing.JFrame {
 
     private void addestadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addestadioActionPerformed
         // TODO add your handling code here:
-        
+        Estadios.add(new estadio(nameestadio.getText(), Ciudad.getText(), Integer.parseInt(Capacidad.getText())));
         JOptionPane.showMessageDialog(this, "Estadio agregado exitosamente");
         estadios.setVisible(false);
         añadirequipo.setVisible(true);
@@ -500,13 +501,12 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_playerActionPerformed
 
     private void piehActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_piehActionPerformed
-        // TODO add your handling code here:
         
         
     }//GEN-LAST:event_piehActionPerformed
 
     private void piehMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_piehMouseClicked
-        
+        pieh.setModel(pie);
     }//GEN-LAST:event_piehMouseClicked
 
     private void equipoestadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoestadioActionPerformed
@@ -519,6 +519,17 @@ public class main extends javax.swing.JFrame {
   
         
     }//GEN-LAST:event_addjugadorMouseClicked
+
+    private void equipojuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipojuegoActionPerformed
+        for (int i = 0; i < E.size(); i++) {
+            if(equipojuego.getText().equals(E.get(i).getNombre())){
+            }
+        }
+    }//GEN-LAST:event_equipojuegoActionPerformed
+
+    private void PosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PosicionActionPerformed
+        Posicion.setModel(pos);
+    }//GEN-LAST:event_PosicionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -554,7 +565,9 @@ public class main extends javax.swing.JFrame {
             }
         });
     }
+    ArrayList<jugador> j = new ArrayList<>();
     ArrayList todos = new ArrayList();
+    DefaultComboBoxModel pos = new DefaultComboBoxModel();
     DefaultComboBoxModel teams = new DefaultComboBoxModel();
     DefaultComboBoxModel pie = new DefaultComboBoxModel();
     equipo Equipo = new equipo();
@@ -563,6 +576,7 @@ public class main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Capacidad;
     private javax.swing.JTextField Ciudad;
+    private javax.swing.JComboBox<String> Posicion;
     private javax.swing.JButton addestadio;
     private javax.swing.JButton addjugador;
     private javax.swing.JTextField age;
@@ -574,6 +588,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel color1;
     private javax.swing.JTextField country;
     private javax.swing.JComboBox<String> equipoestadio;
+    private javax.swing.JTextField equipojuego;
     private javax.swing.JPanel equipos;
     private javax.swing.JPanel estadios;
     private javax.swing.JPanel fondo;
