@@ -79,8 +79,11 @@ public class main extends javax.swing.JFrame {
         equipojuego = new javax.swing.JTextField();
         Posicion = new javax.swing.JComboBox<>();
         menulistar = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        eliminar = new javax.swing.JButton();
+        eliminarlista = new javax.swing.JPanel();
+        instruccion = new javax.swing.JLabel();
+        aeliminar = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 255));
@@ -331,24 +334,48 @@ public class main extends javax.swing.JFrame {
 
         menu.addTab("Añadir", menuañadir);
 
-        jScrollPane1.setViewportView(jTextPane1);
+        menulistar.setBackground(new java.awt.Color(0, 153, 255));
+        menulistar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout menulistarLayout = new javax.swing.GroupLayout(menulistar);
-        menulistar.setLayout(menulistarLayout);
-        menulistarLayout.setHorizontalGroup(
-            menulistarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menulistarLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(572, Short.MAX_VALUE))
-        );
-        menulistarLayout.setVerticalGroup(
-            menulistarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menulistarLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(447, Short.MAX_VALUE))
-        );
+        eliminar.setBackground(new java.awt.Color(255, 204, 0));
+        eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        eliminar.setText("ELIMINAR");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
+        menulistar.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 370, 220));
+
+        eliminarlista.setBackground(new java.awt.Color(0, 153, 255));
+        eliminarlista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        instruccion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        instruccion.setForeground(new java.awt.Color(102, 0, 0));
+        instruccion.setText("Ingrese el nombre del equipo que desea eliminar: ");
+        eliminarlista.add(instruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 521, 135));
+
+        aeliminar.setBackground(new java.awt.Color(255, 204, 51));
+        aeliminar.setForeground(new java.awt.Color(0, 0, 0));
+        aeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aeliminarActionPerformed(evt);
+            }
+        });
+        eliminarlista.add(aeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 430, 145));
+
+        jButton1.setBackground(new java.awt.Color(255, 204, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        eliminarlista.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 210, 90));
+
+        menulistar.add(eliminarlista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 510));
 
         menu.addTab("Lista", menulistar);
 
@@ -531,6 +558,27 @@ public class main extends javax.swing.JFrame {
         Posicion.setModel(pos);
     }//GEN-LAST:event_PosicionActionPerformed
 
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void aeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aeliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aeliminarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        for (int i = 0; i < E.size(); i++) {
+            if (aeliminar.equals(E.get(i).getNombre())) {
+               E.remove(i);
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Contenido removido");
+        eliminarlista.setVisible(false);
+        menulistar.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -579,6 +627,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Posicion;
     private javax.swing.JButton addestadio;
     private javax.swing.JButton addjugador;
+    private javax.swing.JTextField aeliminar;
     private javax.swing.JTextField age;
     private javax.swing.JButton añadire;
     private javax.swing.JButton añadirequipo;
@@ -587,13 +636,15 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel color;
     private javax.swing.JPanel color1;
     private javax.swing.JTextField country;
+    private javax.swing.JButton eliminar;
+    private javax.swing.JPanel eliminarlista;
     private javax.swing.JComboBox<String> equipoestadio;
     private javax.swing.JTextField equipojuego;
     private javax.swing.JPanel equipos;
     private javax.swing.JPanel estadios;
     private javax.swing.JPanel fondo;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JLabel instruccion;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jugadores;
     private javax.swing.JTabbedPane menu;
     private javax.swing.JPanel menuañadir;
