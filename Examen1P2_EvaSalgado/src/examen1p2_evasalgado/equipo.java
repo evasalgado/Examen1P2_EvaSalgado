@@ -5,6 +5,7 @@
 package examen1p2_evasalgado;
 
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -46,13 +47,18 @@ public class equipo {
     }
 
     public void setRating(int Rating) {
+        Random alea = new Random();
+        Rating=alea.nextInt(1,4);
         this.Rating = Rating;
     }
 
     public ArrayList<Integer> getPlantilla() {
         return plantilla;
     }
-
+    @Override
+    public String toString() {
+        return "equipo{" + "nombre=" + nombre + ", pais=" + pais + ", Rating=" + Rating + ", plantilla=" + plantilla ;
+    }
     public void setPlantilla(ArrayList<Integer> plantilla) {
         if (plantilla.size()<=4) {
             this.plantilla = plantilla;
@@ -60,6 +66,8 @@ public class equipo {
             JOptionPane.showMessageDialog(null, "Numero de jugadores no puede ser mayor a 4");
         }
     }
+
+    
     
    
 }
